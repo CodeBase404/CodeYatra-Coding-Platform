@@ -2,7 +2,7 @@ import { Routes, Route, Navigate, useLocation } from "react-router";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import ForgotPassword from "./pages/forgotPassword";
+import ForgotPassword from "./pages/ForgotPassword";
 import { checkAuth } from "./features/auth/authThunks";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
