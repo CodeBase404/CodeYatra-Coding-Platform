@@ -82,7 +82,7 @@ function ChatAi({ problemId }) {
     const signal = controller.signal;
 
     try {
-      const response = await fetch(`http://localhost:4000/chat/${problemId}`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND}/chat/${problemId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
