@@ -22,6 +22,7 @@ import PlanPage from "./pages/PlanPage";
 import LandingPage from "./pages/LandingPage";
 import PrivateRoute from "./utils/PrivateRoute";
 import IntroAnimation from "./components/ui/IntroAnimation";
+import { fetchAllProblems } from "./features/problem/problemThunks";
 
 function App() {
   const { isAuthenticated } = useSelector((state) => state.auth);
@@ -44,6 +45,7 @@ function App() {
     dispatch(checkAuth()).finally(() => {
       dispatch(clearError());
     });
+    dispatch(fetchAllProblems());
   }, [dispatch]);
 
   if (showIntro && path === "/") {
