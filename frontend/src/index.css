@@ -1,0 +1,96 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.gutter:hover {
+  background-clip: padding-box;
+  height: auto;
+  width: auto;
+  border-radius: 9999px;
+}
+
+.gutter:hover {
+  background-color: #1a90ff;
+}
+
+.gutter.gutter-horizontal {
+  cursor: ew-resize;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+.gutter.gutter-vertical {
+  cursor: ns-resize;
+  margin-left: 10px;
+  margin-right: 15px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.custom-fullscreen {
+  position: fixed !important;
+  top: 56px;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 56px);
+  z-index: 1000;
+  background-color: #1e1e1e;
+}
+
+.color-empty {
+  fill: #ebedf0;
+}
+.color-github-1 {
+  fill: #40c463;
+}
+.color-github-2 {
+  fill: #30a14e;
+}
+.color-github-3 {
+  fill: #216e39;
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+    filter: drop-shadow(0 20px 40px rgba(6, 182, 212, 0.15));
+  }
+  25% {
+    transform: translateY(-8px) rotate(0.5deg);
+    filter: drop-shadow(0 25px 45px rgba(6, 182, 212, 0.2));
+  }
+  50% {
+    transform: translateY(-12px) rotate(0deg);
+    filter: drop-shadow(0 30px 50px rgba(6, 182, 212, 0.25));
+  }
+  75% {
+    transform: translateY(-8px) rotate(-0.5deg);
+    filter: drop-shadow(0 25px 45px rgba(6, 182, 212, 0.2));
+  }
+}
+
+.floating-card {
+  animation: floating 6s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.floating-card:hover {
+  animation-duration: 4s;
+  filter: drop-shadow(0 35px 60px rgba(6, 182, 212, 0.3)) brightness(1.1);
+}
