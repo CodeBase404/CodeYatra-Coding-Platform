@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Calendar from "../components/ui/Calender";
 import DailyProblem from "../components/ui/DailyProblem";
 import ProblemsList from "../components/ui/ProblemsList";
-import { getAllSubmissions } from "../features/problem/problemThunks";
+import { getAllSubmissions, fetchAllProblems } from "../features/problem/problemThunks";
 import { useEffect, useState } from "react";
 
 function ProblemSet() {
@@ -12,6 +12,7 @@ function ProblemSet() {
 
   useEffect(() => {
     dispatch(getAllSubmissions());
+    dispatch(fetchAllProblems());
   }, [dispatch]);
 
   return (
