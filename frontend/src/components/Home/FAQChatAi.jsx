@@ -35,7 +35,7 @@ function FAQFAQChatAi() {
     setIsLoading(true);
 
     try {
-      const response = await fetch(`http://localhost:4000/chat/faq`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND}/chat/faq`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
