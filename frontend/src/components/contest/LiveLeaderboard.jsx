@@ -20,7 +20,7 @@ const LiveLeaderboard = ({ contestId, contestName }) => {
 
     socket.emit("join-contest", contestId);
 
-    fetch(`http://localhost:4000/contest/${contestId}/leaderboard`, {
+    fetch(`${import.meta.env.VITE_BACKEND}/contest/${contestId}/leaderboard`, {
       credentials: "include",
     })
       .then((res) => res.json())
