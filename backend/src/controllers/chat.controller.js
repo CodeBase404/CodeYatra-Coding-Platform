@@ -1,4 +1,4 @@
-const faq = require("../configs/AiFAQResponse.js");
+const aiFAQResponse = require("../configs/aiFAQResponse.js");
 const main = require("../configs/generateAiResponse.js");
 const Chat = require("../models/chat.model.js");
 
@@ -63,7 +63,7 @@ const platformDoubt = async (req, res) => {
     res.setHeader("Transfer-Encoding", "chunked");
     res.setHeader("Cache-Control", "no-cache");
 
-    const answer = await faq({ promptMessage });
+    const answer = await aiFAQResponse({ promptMessage });
 
     for await (const chunk of answer) {
       const text = chunk.text || "";

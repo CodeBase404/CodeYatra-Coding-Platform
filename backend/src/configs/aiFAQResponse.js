@@ -2,7 +2,7 @@ const { GoogleGenAI } = require("@google/genai");
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API });
 
-async function faq({ promptMessage }) {
+async function aiFAQResponse({ promptMessage }) {
   const response = await ai.models.generateContentStream({
     model: "gemini-2.0-flash",
     contents: promptMessage,
@@ -79,4 +79,4 @@ Stay helpful and guide users like a friendly assistant! 💬💻
   return response;
 }
 
-module.exports = faq;
+module.exports = aiFAQResponse;
