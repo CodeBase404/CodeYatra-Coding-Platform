@@ -22,7 +22,6 @@ import PlanPage from "./pages/PlanPage";
 import LandingPage from "./pages/LandingPage";
 import PrivateRoute from "./utils/PrivateRoute";
 import IntroAnimation from "./components/ui/IntroAnimation";
-import Footer from "./components/ui/Footer";
 
 function App() {
   const { isAuthenticated } = useSelector((state) => state.auth);
@@ -131,9 +130,6 @@ function App() {
         />
         <Route path="/plans" element={<PlanPage />} />
       </Routes>
-      {!path.startsWith("/problems") &&
-        path !== "/login" &&
-        path !== "/register" && <Footer />}
     </div>
   );
 }
