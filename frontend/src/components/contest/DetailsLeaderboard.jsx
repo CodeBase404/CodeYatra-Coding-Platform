@@ -50,7 +50,7 @@ const DetailsLeaderboard = () => {
     const fetchLeaderboard = async () => {
       try {
         const response = await fetch(
-          `http://localhost:4000/contest/${contestId}/leaderboard`,
+          `${import.meta.env.VITE_BACKEND}/contest/${contestId}/leaderboard`,
           {
             credentials: "include",
           }
