@@ -54,6 +54,7 @@ function ProblemForm({ editMode = false, problemId }) {
   const LANGUAGES = ["cpp", "java", "javascript"];
   const [activeTab, setActiveTab] = useState(0);
   const [loading, setLoading] = useState(editMode);
+  const [submitting, setSubmitting] = useState(false);
   const dispatch = useDispatch();
 
   const {
@@ -140,6 +141,7 @@ function ProblemForm({ editMode = false, problemId }) {
   }, [editMode, problemId, reset]);
 
   const onSubmit = async (data) => {
+    setSubmitting(true);
     try {
       if (editMode && problemId) {
         await axiosClient.put(`/problem/${problemId}`, data);
@@ -151,7 +153,9 @@ function ProblemForm({ editMode = false, problemId }) {
       dispatch(setShowCreateModal(false));
     } catch (error) {
       alert(`Error: ${error.response?.data?.message || error.message}`);
-    }
+    }finally {
+    setSubmitting(false);
+  }
   };
 
   const values = watch();
@@ -693,13 +697,20 @@ function ProblemForm({ editMode = false, problemId }) {
           </AnimatePresence>
         </div>
 
-        <button type="submit" className="btn btn-primary w-full">
-          {editMode && loading
-            ? "Problem is Updating..."
-            : editMode
-            ? "Update Problem"
-            : "Create Problem"}
-        </button>
+        <button
+  type="submit"
+  className="btn btn-primary w-full"
+  disabled={submitting}
+>
+  {submitting ? (
+    <span className="loading loading-spinner loading-sm"></span>
+  ) : editMode ? (
+    "Update Problem"
+  ) : (
+    "Create Problem"
+  )}
+</button>
+
       </form>
     </div>
   );
